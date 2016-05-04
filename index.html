@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>track-anything</title>
+	<meta charset="utf-8">
+	<meta name="description" content="A web service to track any events.">
+	<meta name="author" content="Jannis R <mail@jannisr.de>">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="stuff.css">
+	<link rel="stylesheet" href="stuff.js">
+</head>
+<body>
+	<form id="read">
+		<h1>Read Data</h1>
+		<input id="read-id" type="text" placeholder="tracker id" required>
+		<input id="read-submit" type="submit" value="read">
+		<pre id="read-id"></pre>
+	</form>
+
+	<form id="token">
+		<h1>Get A Token</h1>
+		<p>To create a new tracker, you need a token.</p>
+		<input id="token-email" type="email" placeholder="your email">
+		<input id="token-submit" type="submit" value="send">
+	</form>
+	<form id="new">
+		<h1>Create A Tracker</h1>
+		<p>Enter tracker id and token from the email.</p>
+		<input id="new-id" type="text" placeholder="tracker id">
+		<input id="new-token" type="text" placeholder="token">
+		<input id="new-submit" type="submit" value="create">
+	</form>
+</body>
