@@ -1,0 +1,13 @@
+{
+	"name":         "track-anything",
+	"description":  "A web service to track events.",
+	"version":      "0.1.0",
+	"files":        ["todo"],
+	"author":       "Jannis R <mail@jannisr.de>",
+	"homepage":     "https://github.com/derhuerst/track-anything",
+	"repository":   "derhuerst/track-anything",
+	"bugs":         "https://github.com/derhuerst/track-anything/issues",
+	"license":      "ISC",
+	"keywords":     ["track", "events", "http", "analytics", "web", "service"],
+	"engines" :     {"node": ">=6"}
+}
