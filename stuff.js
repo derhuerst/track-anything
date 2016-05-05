@@ -33,6 +33,16 @@ $('#read').addEventListener('submit', function (e) {
 		$('#read-data').innerHTML = body.values.join('\n'))
 })
 
+$('#track').addEventListener('submit', function (e) {
+	e.preventDefault()
+	const data = new URLSearchParams()
+	data.append('key', $('#track-key').value)
+	request('/trackers/' + $('#track-id').value, {
+		  method: 'PATCH'
+		, body:   data
+	})
+})
+
 $('#token').addEventListener('submit', function (e) {
 	e.preventDefault()
 	const data = new URLSearchParams()
