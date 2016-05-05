@@ -10,7 +10,7 @@ const notify = (type, msg) => {
 }
 
 const base = 'http://localhost:8002'
-const request = (url, opt) => fetch(url, opt || {})
+const request = (endpoint, opt) => fetch(base + endpoint, opt || {})
 	.catch((err) => {notify('error', err.message);throw err})
 	.then((res) => res.json())
 	.catch((err) => {notify('error', err.message);throw err})
@@ -29,16 +29,16 @@ const request = (url, opt) => fetch(url, opt || {})
 $('#read').addEventListener('submit', function (e) {
 	e.preventDefault()
 	const id = $('#read-id').value
-	request(base + '/trackers/' + id).then((body) =>
-		$('#read-data').innerHTML = body.values)
+	request('/trackers/' + id).then((body) =>
+		$('#read-data').innerHTML = body.values.join('\n'))
 })
 
 $('#token').addEventListener('submit', function (e) {
 	e.preventDefault()
 	const data = new URLSearchParams()
 	data.append('email', $('#token-email').value)
-	request(base + '/tokens', {
-		  method: 'post'
+	request('/tokens', {
+		  method: 'POST'
 		, body:   data
 	})
 })
@@ -48,8 +48,8 @@ $('#new').addEventListener('submit', function (e) {
 	const data = new URLSearchParams()
 	data.append('id',    $('#new-id').value)
 	data.append('token', $('#new-token').value)
-	request(base + '/trackers', {
-		  method: 'post'
+	request('/trackers', {
+		  method: 'POST'
 		, body:   data
 	})
 	.then((body) => $('#new-data').innerHTML = body.key)
